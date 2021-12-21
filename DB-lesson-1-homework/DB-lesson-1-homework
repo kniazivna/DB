@@ -53,4 +53,4 @@ select * from cars where length(model)>8;
 select model, price from cars where price > (select avg(price)from cars);
 
 Останнє завдання в консолі mySQL працює коректно, а коли зробила тут у WebStorm через плагін DB Navigator, то помилку
-вибивало, а тепер і зовсім не хоче працювати через DB Navigator
+вибивало, а тепер і зовсім не хоче працювати через DB Navigator/
