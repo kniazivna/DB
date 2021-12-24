@@ -42,9 +42,8 @@ db.getCollection('users').find({
 
 6) Знайти всіх юзерів в яких назва вулиці містить пробіл
 
-db.getCollection('users').find({'address.street':/.*$nbsp.*/})
+db.getCollection('users').find({'address.street':/.*\s.*/})
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!НЕ ПРАЦЮЄ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(перевірити написання пробіла)
 
 7) Видалити всіх юзерів в котрих немає поля studying
 
@@ -59,7 +58,7 @@ db.getCollection('users').find({parents:/na$/})
 9) Всім юзерам котрі не вивчають python додати його
 db.getCollection('users').updateMany
 (
-{studying:{$nin:['python']}}
+{studying:{$ne:['python']}}
 {$push:{studying:'python'}}
 )
 
