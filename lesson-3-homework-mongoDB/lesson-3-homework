@@ -44,10 +44,14 @@ db.getCollection('users').find({
 
 db.getCollection('users').find({'address.street':/.*\s.*/})
 
+У відповідях був ще такий варіант:  'address.street':/.* .*/
+
 
 7) Видалити всіх юзерів в котрих немає поля studying
 
 db.getCollection('users').remove({studying:null})
+
+У віжповідях такий варіант: db.getCollection('users').deleteMany({studying:null})
 
 
 8) Знайти всіх юзерів в котрих в ім'я когось с батьків закінчується на 'na'
@@ -58,7 +62,7 @@ db.getCollection('users').find({parents:/na$/})
 9) Всім юзерам котрі не вивчають python додати його
 db.getCollection('users').updateMany
 (
-{studying:{$ne:['python']}}
+{studying:{$ne:'python'}},
 {$push:{studying:'python'}}
 )
 
